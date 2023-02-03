@@ -9,8 +9,9 @@ export const FourWindows = () => {
 
                 <div style={{width: "50%", height: "100%"}}>
                     <TradingViewWidget
+                        studies={["RSI@tv-basicstudies"]}
                         symbol="BINANCE:BTCUSDT"
-                        interval="15"
+                        interval="1"
                         timezone="Etc/UTC"
                         theme={Themes.DARK}
                         locale="en"
@@ -19,8 +20,9 @@ export const FourWindows = () => {
                 </div>
                 <div style={{width: "50%", height: "100%"}}>
                     <TradingViewWidget
-                        symbol="BINANCE:DOGEUSDT"
-                        interval="15"
+                        studies={["RSI@tv-basicstudies"]}
+                        symbol="BINANCE:ETHUSDT"
+                        interval="1"
                         timezone="Etc/UTC"
                         theme={Themes.DARK}
                         locale="en"
@@ -31,8 +33,9 @@ export const FourWindows = () => {
             <div style={{display: "flex",height: "50%"}}>
                 <div style={{width: "50%", height: "100%"}}>
                     <TradingViewWidget
-                        symbol="BINANCE:BTCUSDT"
-                        interval="15"
+                        studies={["RSI@tv-basicstudies"]}
+                        symbol="BINANCE:CRVUSDT"
+                        interval="1"
                         timezone="Etc/UTC"
                         theme={Themes.DARK}
                         locale="en"
@@ -41,8 +44,9 @@ export const FourWindows = () => {
                 </div>
                 <div style={{width: "50%", height: "100%"}}>
                     <TradingViewWidget
-                        symbol="BINANCE:DOGEUSDT"
-                        interval="15"
+                        studies={["RSI@tv-basicstudies"]}
+                        symbol="BINANCE:XRPUSDT"
+                        interval="1"
                         timezone="Etc/UTC"
                         theme={Themes.DARK}
                         locale="en"

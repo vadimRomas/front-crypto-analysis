@@ -21,7 +21,7 @@ export const DeleteGraph = () => {
             .then(() => alert('Deleted!'))
             .catch(error => alert(error))
     }
-    console.log(data);
+
     return (
         <div>
             <Button onClick={save}>Delete {data.symbol.value} {data.time.value}</Button>

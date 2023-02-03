@@ -16,7 +16,7 @@ export const TradingViewAnalysis = () => {
             <div className='AC-and-TA-p' style={{display: "flex", width: "100%"}}>
                 <div className='AC' style={{width: "100%"}}>
                     <AdvancedChart widgetProps={{
-                        "theme": "dark",
+                        theme: "dark",
                         symbol: symbol.value,
                         // interval: time.tv,
                         timezone: "Etc/UTC",
@@ -43,7 +43,7 @@ export const TradingViewAnalysis = () => {
                 </div>
             </div>
 
-            {moreInformation ? <MoreInformation/> :
+            {moreInformation ? <MoreInformation symbol={symbol}/> :
                 <Button style={{background: '#131722'}} onClick={event => setMoreInformation(true)}>More...</Button>}
             {moreInformation ? <Button style={{background: '#131722'}}
                                        onClick={event => setMoreInformation(false)}>less...</Button> : " "}

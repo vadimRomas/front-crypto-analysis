@@ -64,13 +64,13 @@ export const Graph = (props) => {
                 borderJoinStyle: "miter",
                 pointBorderColor: "#0069b447",
                 pointBackgroundColor: "#fff",
-                pointBorderWidth: 1,
-                pointHoverRadius: 5,
+                // pointBorderWidth: 1,
+                // pointHoverRadius: 5,
                 pointHoverBackgroundColor: "#0069b447",
                 pointHoverBorderColor: "#0069b4",
-                pointHoverBorderWidth: 2,
-                pointRadius: 1,
-                pointHitRadius: 10,
+                // pointHoverBorderWidth: 2,
+                // pointRadius: 1,
+                // pointHitRadius: 10,
                 data: [65, 59, 80, 81, 56, 55, 40]
             },
             // {
@@ -122,72 +122,74 @@ export const Graph = (props) => {
         Legend
     );
 
-    useEffect(() => {
-        let dataForDataZwei = [];
-        let labelsForDataZwei = [];
-
-        props.props.map(value => {
-            dataForDataZwei.push(value.Close);
-            const date = new Date(value.Close_time)
-            const dateTime = `${date.getHours()}:${date.getMinutes()} ${date.getDate()}`
-            labelsForDataZwei.push(dateTime);
-            return true
-        });
-
-        setDataZwei({
-            labels: labelsForDataZwei,
-            datasets: [
-                {
-                    type: "line",
-                    label: "My First dataset",
-                    fill: false,
-                    lineTension: 0.1,
-                    backgroundColor: "#0069b4",
-                    borderColor: "#0069b4",
-                    borderCapStyle: "butt",
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: "miter",
-                    pointBorderColor: "#0069b447",
-                    pointBackgroundColor: "#fff",
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "#0069b447",
-                    pointHoverBorderColor: "#0069b4",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    data: dataForDataZwei
-                },
-                {
-                    type: "bar",
-                    label: "volume",
-                    fill: false,
-                    lineTension: 0.1,
-                    backgroundColor: "#ff4c4c",
-                    borderColor: "#ff1e5c",
-                    borderCapStyle: "butt",
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: "miter",
-                    pointBorderColor: "#0069b447",
-                    pointBackgroundColor: "#fff",
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "#0069b447",
-                    pointHoverBorderColor: "#0069b4",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    data: [16900,]
-                }
-            ]
-        });
-    }, [props]);
+    // useEffect(() => {
+    //     let dataForDataZwei = [];
+    //     let labelsForDataZwei = [];
+    //     let volume = []
+    //
+    //     props.data.map(value => {
+    //         // volume.push(value.Volume);
+    //         dataForDataZwei.push(value.Close);
+    //         const date = new Date(value.Close_time)
+    //         const dateTime = `${date.getHours()}:${date.getMinutes()} ${date.getDate()}`
+    //         labelsForDataZwei.push(dateTime);
+    //         return true
+    //     });
+    //
+    //     setDataZwei({
+    //         labels: labelsForDataZwei,
+    //         datasets: [
+    //             {
+    //                 type: "line",
+    //                 label: "My First dataset",
+    //                 fill: false,
+    //                 lineTension: 0.1,
+    //                 backgroundColor: "#0069b4",
+    //                 borderColor: "#0069b4",
+    //                 borderCapStyle: "butt",
+    //                 borderDash: [],
+    //                 borderDashOffset: 0.0,
+    //                 borderJoinStyle: "miter",
+    //                 pointBorderColor: "#0069b447",
+    //                 pointBackgroundColor: "#fff",
+    //                 pointBorderWidth: 1,
+    //                 pointHoverRadius: 5,
+    //                 pointHoverBackgroundColor: "#0069b447",
+    //                 pointHoverBorderColor: "#0069b4",
+    //                 pointHoverBorderWidth: 2,
+    //                 pointRadius: 1,
+    //                 pointHitRadius: 10,
+    //                 data: dataForDataZwei
+    //             },
+    //             // {
+    //             //     type: "bar",
+    //             //     label: "volume",
+    //             //     fill: false,
+    //             //     lineTension: 0.1,
+    //             //     backgroundColor: "#ff4c4c",
+    //             //     borderColor: "#ff1e5c",
+    //             //     borderCapStyle: "butt",
+    //             //     borderDash: [],
+    //             //     borderDashOffset: 0.0,
+    //             //     borderJoinStyle: "miter",
+    //             //     pointBorderColor: "#0069b447",
+    //             //     pointBackgroundColor: "#fff",
+    //             //     pointBorderWidth: 1,
+    //             //     pointHoverRadius: 5,
+    //             //     pointHoverBackgroundColor: "#0069b447",
+    //             //     pointHoverBorderColor: "#0069b4",
+    //             //     pointHoverBorderWidth: 2,
+    //             //     pointRadius: 1,
+    //             //     pointHitRadius: 10,
+    //             //     data: volume
+    //             // }
+    //         ]
+    //     });
+    // }, [props]);
 
     return (
         <div>
-            {data && dataZwei && dataNeu ? <Container>🙂
+            {data && dataZwei && dataNeu ? <Container >🙂  {/* style={{overflow: 'hidden'}} */}
                     <Row
                         // style={{width: "50%", height: "25%"}}
                     >

@@ -21,7 +21,7 @@ export const SaveGraph = () => {
             .then(() => alert('SAVED!'))
             .catch(error => alert(error))
     }
-    console.log(data);
+
     return (
         <div>
             <Button onClick={save}>Save {data.symbol.value} {data.time.value}</Button>

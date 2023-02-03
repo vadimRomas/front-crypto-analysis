@@ -1,22 +1,22 @@
 import {useState} from "react";
 import {Button, Form} from "react-bootstrap";
-import axios from "axios";
+import {AuthServices} from "../../services/userServices";
+import {useNavigate} from "react-router-dom";
 
 export const UserLogin = () => {
     const [email: string, setEmail] = useState('')
     const [password: string, setPassword] = useState('')
+    const navigate = useNavigate();
+
 
     const login = (): void => {
-
-        axios.post('http://localhost:8000/user/login', {"email": email, "password": password})
+        const authServices = new AuthServices()
+        authServices.login({"email": email, "password": password})
             .then(res => {
                 localStorage.setItem('refresh', res.data.refresh)
                 localStorage.setItem('access', res.data.access)
+                navigate('/user/profile', { replace: true });
             })
-        // ).then((response) => response.json())
-        //     .then((data) => {
-        //         console.log('Success:', data);
-        //     })
             .catch((error) => {
                 alert(error);
             });

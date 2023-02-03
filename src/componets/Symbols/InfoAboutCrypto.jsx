@@ -27,7 +27,7 @@ export function InfoAboutCrypto() {
             <GetSymbols/>
             <h1>PRICE: {price}</h1>
             <div>Hello World I`m InfoAboutCrypto {symbol ? `${symbol.value} - ${time.value}` : 'loading...'}</div>
-            <Graph props={data}/>
+            <Graph data={data}/>
         </div>
     );
 }

@@ -17,9 +17,9 @@ import {
 } from "react-tradingview-embed";
 import React from "react";
 
-export const MoreInformation = (symbol='BINANCE:BTCUSDT') => {
+export const MoreInformation = (props) => {
   return (
-      <div>
+      <div style={{background: '#131722'}}>
       <h2>MarketOverview</h2>
             <MarketOverview/>
             <br/>
@@ -37,16 +37,16 @@ export const MoreInformation = (symbol='BINANCE:BTCUSDT') => {
             <TickerTape/>
             <br/>
             <h2>SingleTicker</h2>
-            <SingleTicker widgetProps={{symbol: "BINANCE:BTCUSDT"}}/>
+            <SingleTicker widgetProps={{symbol: `BINANCE:${props.symbol.value}`}}/>
             <br/>
             <h2>MiniChart</h2>
-            <MiniChart widgetProps={{symbol: "BINANCE:BTCUSDT"}}/>
+            <MiniChart widgetProps={{symbol: `BINANCE:${props.symbol.value}`}}/>
             <br/>
             <h2>SymbolOverview</h2>
-            <SymbolOverview widgetProps={{symbol: "BINANCE:BTCUSDT"}}/>
+            <SymbolOverview widgetProps={{symbol: `BINANCE:${props.symbol.value}`}}/>
             <br/>
             <h2>SymbolInfo</h2>
-            <SymbolInfo widgetProps={{symbol: "BINANCE:BTCUSDT"}}/>
+            <SymbolInfo widgetProps={{symbol: `BINANCE:${props.symbol.value}`}}/>
             <br/>
             <h2>ForexCrossRates</h2>
             <ForexCrossRates/>
@@ -58,10 +58,10 @@ export const MoreInformation = (symbol='BINANCE:BTCUSDT') => {
             <CryptocurrencyMarket/>
             <br/>
             <h2>FundamentalData</h2>
-            <FundamentalData widgetProps={{symbol: "BINANCE:BTCUSDT"}}/>
+            <FundamentalData widgetProps={{symbol: `BINANCE:${props.symbol.value}`}}/>
             <br/>
             <h2>CompanyProfile</h2>
-            <CompanyProfile widgetProps={{symbol: "BINANCE:BTCUSDT"}}/>
+            <CompanyProfile widgetProps={{symbol: `BINANCE:${props.symbol.value}`}}/>
             <br/>
             <h2>Timeline</h2>
             <Timeline/>

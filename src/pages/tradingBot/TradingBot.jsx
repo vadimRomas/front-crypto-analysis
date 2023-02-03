@@ -9,35 +9,41 @@ export const TradingBot = () => {
         BTCUSDT: [],
         ETHUSDT: [],
         BNBUSDT: []
-    })
+    });
 
     useEffect(() => {
-        const cryptoServices = new CryptoServices()
+        const cryptoServices = new CryptoServices();
         cryptoServices.get_bot().then(res => {
-            console.log(res)
-            setData(res.data)
-        })
-    }, [])
+            let result = {};
+            res.data.map(value => {
+                if (result[value.symbol]) {
+                    result[value.symbol].push(value);
+                    return
+                }
+                result[value.symbol] = [value];
+            });
+
+            Object.entries(result).map(value => value[1].sort((a, b) => new Date(a.time) - new Date(b.time)));
+
+            setData(result);
+        });
+    }, []);
+
     return (
         <div>
             <Tabs
-                defaultActiveKey="BTCUSDT"
+                defaultActiveKey={Object.keys(data)[0]}
                 id="uncontrolled-tab-example"
                 className="mb-3"
                 fill
             >
-                <Tab eventKey="XRPUSDT" title="XRPUSDT">
-                    <Sonnet data={data.XRPUSDT} key={data.XRPUSDT}/>
-                </Tab>
-                <Tab eventKey="BTCUSDT" title="BTCUSDT">
-                    <Sonnet data={data.BTCUSDT} key={data.BTCUSDT} />
-                </Tab>
-                <Tab eventKey="ETHUSDT" title="ETHUSDT">
-                    <Sonnet data={data.ETHUSDT} key={data.ETHUSDT} />
-                </Tab>
-                <Tab eventKey="BNBUSDT" title="BNBUSDT">
-                    <Sonnet data={data.BNBUSDT} key={data.BNBUSDT} />
-                </Tab>
+                {
+                    Object.entries(data).map((value) =>
+                        <Tab eventKey={value[0]} title={value[0]}>
+                            <Sonnet data={value[1]} key={value[0]}/>
+                        </Tab>
+                    )
+                }
             </Tabs>
         </div>
     )

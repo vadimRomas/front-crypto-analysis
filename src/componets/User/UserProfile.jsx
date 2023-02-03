@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import {Button, Form} from "react-bootstrap";
 import type {User} from '../../interface/UserInterface';
 import {UserServices} from "../../services/userServices";
+import {useNavigate} from "react-router-dom";
+// todo add which user have bots, balance, how much  заробили  bots
 
 export const UserProfile = () => {
     const [user: User, setUser] = useState({
@@ -11,6 +13,8 @@ export const UserProfile = () => {
         email: '',
     });
     const userServices = new UserServices()
+    const navigate = useNavigate()
+
 
     useEffect((): void => {
         userServices.get_user().then(response => {
@@ -29,6 +33,12 @@ export const UserProfile = () => {
             .then(() => alert('Saved!'))
             .catch(error => alert(error));
     };
+
+    const logout = (): void => {
+        localStorage.removeItem('refresh');
+        localStorage.removeItem('access');
+        navigate('/', { replace: true });
+    }
 
     return (
         <Form className="card-form">
@@ -54,8 +64,21 @@ export const UserProfile = () => {
                 </Form.Text>
             </Form.Group>
 
-            <Button style={{margin: '10px'}} onClick={save} variant="primary" type="submit">Save changes</Button>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>API Key</Form.Label>
+                <Form.Control type="password"
+                              placeholder="API Key"/>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>API Secret Key</Form.Label>
+                <Form.Control type="password"
+                              placeholder="API Secret Key"/>
+            </Form.Group>
+
+            <Button style={{margin: '5px'}} onClick={save} variant="primary" type="submit">Save changes</Button>
             <Button onClick={deleteUser}>Delete account</Button>
+            <Button style={{margin: '5px'}} onClick={logout}>logout</Button>
 
         </Form>
     );

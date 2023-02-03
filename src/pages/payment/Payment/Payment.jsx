@@ -14,11 +14,11 @@ export const Payment = () => {
                 style={{width: '18rem'}}
                 className="mb-2"
             >
-                <Card.Header>200 usd</Card.Header>
+                <Card.Header>20 usd</Card.Header>
                 <Card.Body>
-                    <Card.Title>crypto analysis</Card.Title>
+                    <Card.Title>Tradingview Bot</Card.Title>
                     <Card.Text>
-                        pay this option and you open our crypto analysis to anyone coin
+                        This bot on tradingview Technical Analysis. trading on Spot.
                     </Card.Text>
                     {/*<Button onClick={pay} variant="primary">Pay</Button>*/}
                     <a href='http://127.0.0.1:8000/my_payments/checkout' target="_blank">Pay now</a>
@@ -32,11 +32,11 @@ export const Payment = () => {
                 style={{width: '18rem'}}
                 className="mb-2"
             >
-                <Card.Header>250 usd</Card.Header>
+                <Card.Header>30 usd</Card.Header>
                 <Card.Body>
-                    <Card.Title>crypto analysis and answer for your questions</Card.Title>
+                    <Card.Title>RSI Bot</Card.Title>
                     <Card.Text>
-                        pay this option and you open our crypto analysis to anyone coin
+                        This bot see RSI and work analysis. trading on Future.
                     </Card.Text>
                     {/*<Button onClick={pay} variant="primary">Pay</Button>*/}
                     <a href='http://127.0.0.1:8000/my_payments/checkout' target="_blank">Pay now</a>

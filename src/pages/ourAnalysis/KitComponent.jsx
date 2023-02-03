@@ -5,6 +5,7 @@ import * as Icon from "react-bootstrap-icons";
 // import {w3cwebsocket as W3CWebSocket} from "websocket";
 import {TableForKit} from "./TableForKit";
 import {BBAARR} from "./BBAARR";
+import Depth from "./Depth";
 
 export const KitComponent = () => {
     const [spotDepths, setSpotDepths] = useState([]);
@@ -60,11 +61,12 @@ export const KitComponent = () => {
                 <div style={{background: "#D1E7DD"}}>buy</div>
             </div>
 
-            <TableForKit data={spotDepths} name="Spot"/>
-            <TableForKit data={futureDepths} name="Future"/>
-            {dataForBar ? <BBAARR longData={dataForBar.long} shortData={dataForBar.short} labels={labelsForBar}/> : ''}
+            <TableForKit data={spotDepths} name="Spot" />
+            <TableForKit data={futureDepths} name="Future" />
+            {dataForBar ? <BBAARR longData={dataForBar.long} shortData={dataForBar.short} labels={labelsForBar} /> : ''}
+            <Depth />
 
-            <Modal show={isLoading} fullscreen={fullscreen} onHide={() => setIsLoading(false)}>
+            <Modal show={isLoading} fullscreen={fullscreen} onHide={() => setIsLoading(false)} >
                 <Modal.Header closeButton>
                     <Modal.Title>Warning</Modal.Title>
                 </Modal.Header>

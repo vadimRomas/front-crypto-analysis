@@ -1,4 +1,4 @@
-import {Button, Container, Form, Nav, Navbar, NavDropdown, Offcanvas} from "react-bootstrap";
+import {Container, Nav, Navbar, NavDropdown, Offcanvas} from "react-bootstrap";
 import Select from 'react-select';
 import {Fragment, useEffect, useState} from "react";
 import {timeFrame} from "./state/timeFrame";
@@ -19,7 +19,7 @@ export const MyNavbar = () => {
     const expand = 'lg'
 
     return (
-        <Navbar style={{height: '6vh'}} key={expand} bg="dark" variant="dark" expand={expand} >
+        <Navbar style={{height: '6vh'}} key={expand} bg="dark" variant="dark" expand={expand}>
             <Container fluid>
                 <Navbar.Brand href="/">Crypto Analysis</Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}/>
@@ -56,7 +56,6 @@ export const MyNavbar = () => {
                             </NavDropdown>
                             {/*<Nav.Link href="/aws">AWS S3</Nav.Link>*/}
                             <Nav.Link href="/instruction">Instruction</Nav.Link>
-                            {/*Todo change dynamic url */}
                             <Fragment>
                                 <Select
                                     className="basic-single"
@@ -82,7 +81,7 @@ export const MyNavbar = () => {
                             <Nav.Link eventKey={2} href="/user/register">
                                 Reg in
                             </Nav.Link>
-                        </Nav> : <Nav.Link href="/user/profile"><Icon.Person color='white' width="1000%"/></Nav.Link>}
+                        </Nav> : <Nav.Link href="/user/profile"><Icon.Person color='white' width="100%"/></Nav.Link>}
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
             </Container>

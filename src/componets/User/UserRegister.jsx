@@ -1,6 +1,7 @@
 import {useState} from "react";
-import axios from "axios";
 import {Button, Form} from "react-bootstrap";
+import {AuthServices} from "../../services/userServices";
+import {useNavigate} from "react-router-dom";
 
 export const UserRegister = () => {
     const [user, setUser] = useState({
@@ -9,15 +10,12 @@ export const UserRegister = () => {
         first_name: null,
         last_name: null
     })
-
-
-    const redirect = () => {
-        console.log('register');
-    };
+    const navigate = useNavigate()
 
     const register = () => {
-        axios.post('http://localhost:8000/user/register', user)
-            .then(response => redirect());
+        const authServices = new AuthServices()
+
+        authServices.register(user).then(res => navigate('/user/login', { replace: true }))
     };
 
     return (
