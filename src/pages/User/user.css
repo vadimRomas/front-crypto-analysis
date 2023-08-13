@@ -1,0 +1,40 @@
+a {
+    text-decoration: none;
+}
+
+li {
+    padding-top: 4%;
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.user-menu {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.user-profile {
+    /*display: flex;*/
+    width: 100%;
+}
+
+.user-form {
+    color: white;
+    background: #474955;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.menu-item {
+    background: gray;
+    width: 12%;
+    padding: 1%;
+    height: 10%;
+}
+
+.white {
+    color: white;
+}

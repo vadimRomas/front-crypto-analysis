@@ -9,13 +9,13 @@ export class AuthServices {
         this.url = `${url}user/`
     }
 
-     login(userData) {
+    login(userData) {
         return axios.post(`${this.url}login`, userData)
 
     }
 
     register(userData) {
-         return axios.post(`${this.url}register`, userData)
+        return axios.post(`${this.url}register`, userData)
     }
 
 }
@@ -34,4 +34,27 @@ export class UserServices {
         return $api.delete('user/')
     }
 
+    addCryptoAPIKeys(data) {
+        return $api.post('user/cryptoapikeys', data)
+    }
+
+    getCryptoAPIKeys() {
+        return $api.get('user/cryptoapikeys')
+    }
+
+}
+
+export class CryptoAPIKeys {
+
+    addCryptoAPIKeys(data) {
+        return $api.post('user/cryptoapikeys', data)
+    }
+
+    getCryptoAPIKeys() {
+        return $api.get('user/cryptoapikeys')
+    }
+
+    deleteCryptoAPIKeys(keysId) {
+        return $api.delete(`user/cryptoapikeys/${keysId}`)
+    }
 }

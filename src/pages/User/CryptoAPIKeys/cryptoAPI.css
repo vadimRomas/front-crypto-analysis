@@ -1,0 +1,44 @@
+.main-crypto-api-keys {
+    display: flex;
+    height: 70vh;
+}
+
+.cards-user-crypto-keys {
+    display: flex;
+    height: 100%;
+}
+
+.card-user-crypto-keys {
+    display: flex;
+    margin: auto;
+}
+
+.button-add-api-keys {
+    margin-left: 30%;
+}
+
+.user-havent-keys {
+    width: 35%;
+    margin: auto;
+}
+
+.open-form-api-keys {
+    padding: 2%;
+    color: white;
+    background: #474955;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-api-keys {
+    width: 100%;
+}
+
+.button-close-form {
+    display: flex;
+    justify-content: end;
+}
+
+.form-api-keys .card-form {
+    width: auto;
+}

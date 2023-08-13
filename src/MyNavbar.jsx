@@ -6,12 +6,12 @@ import * as Icon from "react-bootstrap-icons";
 import {GetSymbols} from "./componets/Symbols/GetSymbols";
 
 export const MyNavbar = () => {
-    const [token: string, setToken] = useState();
+    const [token, setToken] = useState();
 
     const currentTimeFrame = JSON.parse(localStorage.getItem('timeFrame'));
 
     useEffect(() => {
-        const access: string = localStorage.getItem('access');
+        const access = localStorage.getItem('access');
         setToken(access);
     }, [])
 
@@ -37,10 +37,6 @@ export const MyNavbar = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="me-auto">
-                            <NavDropdown title="Payment" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="/payment">Payment</NavDropdown.Item>
-                                <NavDropdown.Item href="/payment/history">Payment History</NavDropdown.Item>
-                            </NavDropdown>
                             <NavDropdown title="TradingView PRO" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/TradingView/chart">Chart</NavDropdown.Item>
                                 <NavDropdown.Item href="/TradingView/analysis">Analysis TradingView</NavDropdown.Item>
@@ -72,9 +68,9 @@ export const MyNavbar = () => {
                                 />
                             </Fragment>
                             {/* eslint-disable-next-line react/jsx-pascal-case */}
-                            <div className="select-symbol">
-                                <GetSymbols/>
-                            </div>
+                            {/*<div className="select-symbol">*/}
+                            {/*    <GetSymbols/>*/}
+                            {/*</div>*/}
                         </Nav>
                         {!token ? <Nav>
                             <Nav.Link href="/user/login">Log in</Nav.Link>

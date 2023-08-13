@@ -2,13 +2,13 @@ import React, {useState} from "react";
 import {AdvancedChart, TechnicalAnalysis, TickerTape} from "react-tradingview-embed";
 import {Button} from "react-bootstrap";
 import {MoreInformation} from "./MoreInformation";
-import {TimeFrame} from "../../interface/TimeFrame";
-import type {SymbolInterface} from "../../interface/SymbolInterface";
+// import {TimeFrame} from "../../interface/TimeFrame";
+// import type {SymbolInterface} from "../../interface/SymbolInterface";
 
 export const TradingViewAnalysis = () => {
-    const [moreInformation: boolean, setMoreInformation] = useState(false);
-    let symbol: SymbolInterface = JSON.parse(localStorage.getItem('symbol'));
-    let time: TimeFrame = JSON.parse(localStorage.getItem('timeFrame'));
+    const [moreInformation, setMoreInformation] = useState(false);
+    let symbol = JSON.parse(localStorage.getItem('symbol'));
+    let time = JSON.parse(localStorage.getItem('timeFrame'));
 
     return (
         <div className='main' style={{background: "#131722", height: "94vh"}}>
@@ -30,7 +30,7 @@ export const TradingViewAnalysis = () => {
                         <TechnicalAnalysis
                             widgetProps={{
                                 symbol: `BINANCE:${symbol.value}`,
-                                interval: time.tv,
+                                interval: '15m',
                                 showIntervalTabs: false,
                             }}/>
                     </div>

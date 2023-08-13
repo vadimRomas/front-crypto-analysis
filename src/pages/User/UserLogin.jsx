@@ -4,12 +4,12 @@ import {AuthServices} from "../../services/userServices";
 import {useNavigate} from "react-router-dom";
 
 export const UserLogin = () => {
-    const [email: string, setEmail] = useState('')
-    const [password: string, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const navigate = useNavigate();
 
 
-    const login = (): void => {
+    const login = () => {
         const authServices = new AuthServices()
         authServices.login({"email": email, "password": password})
             .then(res => {

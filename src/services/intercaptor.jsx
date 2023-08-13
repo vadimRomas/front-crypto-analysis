@@ -12,11 +12,5 @@ $api.interceptors.request.use(config => {
     return config;
 })
 
-$api.interceptors.response.use(config => {
-    console.log('config')
-    console.log(config)
-    // config.headers.Authorization = `Bearer ${localStorage.getItem('access')}`
-    return config;
-})
 
 export default $api;
