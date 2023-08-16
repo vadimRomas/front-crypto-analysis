@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {UserServices} from "../../services/userServices";
+import {userServices} from "../../services/userServices";
 import {useNavigate} from "react-router-dom";
 import "./user.css"
 import {UserUpdate} from "./UserUpdate";
@@ -9,7 +9,6 @@ import {MainUserBots} from "./UserBots/MainUserBots";
 // todo add which user have bots, balance, how much  заробили  bots
 
 export const UserProfile = () => {
-    const userServices = new UserServices()
     const navigate = useNavigate()
 
     const deleteUser = () => {

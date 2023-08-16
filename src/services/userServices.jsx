@@ -3,7 +3,7 @@ import $api from "./intercaptor";
 import {url} from "../state/enviroment";
 
 
-export class AuthServices {
+class AuthServices {
 
     constructor() {
         this.url = `${url}user/`
@@ -20,7 +20,7 @@ export class AuthServices {
 
 }
 
-export class UserServices {
+class UserServices {
 
     get_user() {
         return $api.get('user')
@@ -44,7 +44,7 @@ export class UserServices {
 
 }
 
-export class CryptoAPIKeys {
+class CryptoAPIKeys {
 
     addCryptoAPIKeys(data) {
         return $api.post('user/cryptoapikeys', data)
@@ -58,3 +58,7 @@ export class CryptoAPIKeys {
         return $api.delete(`user/cryptoapikeys/${keysId}`)
     }
 }
+
+export const authServices = new AuthServices()
+export const userServices = new UserServices()
+export const cryptoAPIKeys = new CryptoAPIKeys()

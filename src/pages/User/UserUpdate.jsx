@@ -1,6 +1,6 @@
 import {Button, Form} from "react-bootstrap";
 import "./user.css"
-import {UserServices} from "../../services/userServices";
+import {userServices} from "../../services/userServices";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
@@ -11,7 +11,6 @@ export const UserUpdate = () => {
         last_name: '',
         email: '',
     });
-    const userServices = new UserServices()
     const navigate = useNavigate()
 
     useEffect(() => {

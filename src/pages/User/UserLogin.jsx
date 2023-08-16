@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {Button, Form} from "react-bootstrap";
-import {AuthServices} from "../../services/userServices";
+import {authServices} from "../../services/userServices";
 import {useNavigate} from "react-router-dom";
 
 export const UserLogin = () => {
@@ -10,7 +10,6 @@ export const UserLogin = () => {
 
 
     const login = () => {
-        const authServices = new AuthServices()
         authServices.login({"email": email, "password": password})
             .then(res => {
                 localStorage.setItem('refresh', res.data.refresh)

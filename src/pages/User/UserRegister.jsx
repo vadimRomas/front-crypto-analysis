@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {Button, Form} from "react-bootstrap";
-import {AuthServices} from "../../services/userServices";
+import {authServices} from "../../services/userServices";
 import {useNavigate} from "react-router-dom";
 
 export const UserRegister = () => {
@@ -13,8 +13,6 @@ export const UserRegister = () => {
     const navigate = useNavigate()
 
     const register = () => {
-        const authServices = new AuthServices()
-
         authServices.register(user).then(res => navigate('/user/login', { replace: true }))
     };
 
