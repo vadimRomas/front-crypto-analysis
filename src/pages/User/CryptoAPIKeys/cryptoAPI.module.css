@@ -1,72 +1,72 @@
-.main-crypto-api-keys {
+.mainCryptoApiKeys {
     display: flex;
     margin: 1%;
 }
 
-.cards-user-crypto-keys {
+.cardsUserCryptoKeys {
     justify-content: space-between;
 }
 
-.card-user-crypto-keys {
+.cardUserCryptoKeys {
     width: 20%;
     margin: 1%;
 }
 
-.card-body {
+.cardBody {
     margin: 0 auto;
 }
 
-.button-open-form {
+.buttonOpenForm {
     margin: auto;
 }
 
-.button-add-api-keys {
+.buttonAddApiKeys {
     display: flex;
     justify-content: center;
 }
 
-.user-havent-keys {
+.userHaventKeys {
     width: 100%;
     height: 100vh;
 }
 
-.open-form-api-keys {
+.openFormApiKeys {
     border-style: dotted;
     border-radius: 10%;
     width: 30%;
 }
 
-.form-api-keys {
+.formApiKeys {
     width: 100%;
 }
 
-.button-close-form {
+.buttonCloseForm {
     display: flex;
     justify-content: end;
     margin-right: 5%;
     margin-top: 1%;
 }
 
-.form-api-keys .card-form {
+.formApiKeys .cardForm {
     width: 100%;
     justify-content: space-around;
     margin: 0;
 }
 
-.form-group {
+.formGroup {
     width: 45%;
 }
 
-.check-box-testnet {
+.checkBoxTestnet {
     margin-top: 7%
 }
 
-.button-open-form, .user-havent-keys {
+.buttonOpenForm, .userHaventKeys {
     justify-content: center;
     align-content: center;
 }
 
-.button-open-form, .user-havent-keys, .form-api-keys .card-form, .cards-user-crypto-keys {
+.buttonOpenForm, .userHaventKeys, .formApiKeys .cardForm, .cardsUserCryptoKeys {
     display: flex;
     flex-wrap: wrap;
 }

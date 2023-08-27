@@ -34,14 +34,6 @@ class UserServices {
         return $api.delete('user/')
     }
 
-    addCryptoAPIKeys(data) {
-        return $api.post('user/cryptoapikeys', data)
-    }
-
-    getCryptoAPIKeys() {
-        return $api.get('user/cryptoapikeys')
-    }
-
 }
 
 class CryptoAPIKeys {
@@ -50,8 +42,8 @@ class CryptoAPIKeys {
         return $api.post('user/cryptoapikeys', data)
     }
 
-    getCryptoAPIKeys() {
-        return $api.get('user/cryptoapikeys')
+    getCryptoAPIKeys(filter) {
+        return $api.get('user/cryptoapikeys', {params: {filter} })
     }
 
     deleteCryptoAPIKeys(keysId) {
@@ -59,6 +51,22 @@ class CryptoAPIKeys {
     }
 }
 
+
+class UserBotsService {
+    addBot(data) {
+        return $api.post(`user/bot`, data)
+    }
+
+    getBots() {
+        return $api.get('user/bot')
+    }
+
+    changeIsActive(botId, isActive) {
+        return $api.patch(`user/bot/${botId}`, {is_active: isActive})
+    }
+}
+
 export const authServices = new AuthServices()
 export const userServices = new UserServices()
 export const cryptoAPIKeys = new CryptoAPIKeys()
+export const userBotsService = new UserBotsService()

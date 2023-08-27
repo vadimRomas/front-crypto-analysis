@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {CryptoServices} from "../../services/CryptoServices";
+import {cryptoServices} from "../../services/CryptoServices";
 import {GetSymbols} from "./GetSymbols";
 
 export function InfoAboutCrypto() {
@@ -10,7 +10,6 @@ export function InfoAboutCrypto() {
 
     const time = localStorage.getItem('timeFrame') ? JSON.parse(localStorage.getItem('timeFrame')) : '1m';
     useEffect(() => {
-        const cryptoServices = new CryptoServices();
         cryptoServices.dataForGraphs(symbol.value, time.value)
             .then(response => {
                 setPrice(response.data.slice(-1)[0].Close);

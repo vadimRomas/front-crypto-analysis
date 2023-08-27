@@ -2,7 +2,7 @@ import axios from "axios";
 import {url, ws} from "../state/enviroment";
 import {w3cwebsocket as W3CWebSocket} from "websocket";
 
-export class CryptoServices {
+class CryptoServices {
     constructor() {
         this.url = `${url}crypto/`
     }
@@ -15,11 +15,11 @@ export class CryptoServices {
         return axios.get(`${this.url}symbols`)
     }
 
-    dataForGraphs(symbol: string, time: string) {
+    dataForGraphs(symbol, time) {
         return axios.get(`${this.url}?symbol=${symbol}&time=${time}`)
     }
     get_bot() {
-        return axios.get(`${this.url}tradingview_bot`)
+        return axios.get(`${this.url}bots/list`)
     }
 }
 
@@ -33,3 +33,5 @@ export class CryptoWebSockets {
         // return axios.get(`${this.url}kit`)
     }
 }
+
+export const cryptoServices = new CryptoServices()

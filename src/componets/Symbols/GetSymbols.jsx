@@ -2,14 +2,13 @@ import {useState, useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.css';
 import Select from "react-select";
-import {CryptoServices} from "../../services/CryptoServices";
+import {cryptoServices} from "../../services/CryptoServices";
 
 export const GetSymbols = () => {
-    const [symbols: Array, setSymbols] = useState([{value:"BTCUSDT", label:"BTCUSDT"}]);
+    const [symbols, setSymbols] = useState([{value:"BTCUSDT", label:"BTCUSDT"}]);
     const currentSymbol =JSON.parse(localStorage.getItem('symbol'))
 
     useEffect(() => {
-        const cryptoServices = new CryptoServices()
         cryptoServices.allSymbols()
             .then(response => {
                 const result = [];

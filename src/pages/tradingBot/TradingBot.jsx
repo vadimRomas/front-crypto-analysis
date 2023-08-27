@@ -1,50 +1,40 @@
 import {useEffect, useState} from "react";
-import {CryptoServices} from "../../services/CryptoServices";
-import {Tab, Tabs} from "react-bootstrap";
-import {Sonnet} from "./Sonnet";
+import {cryptoServices} from "../../services/CryptoServices";
+import {Button} from "react-bootstrap";
+import style from "./trading-bot.module.css"
+import {FormUserAddBot} from "./FormUserAddBot";
 
 export const TradingBot = () => {
-    const [data, setData] = useState({
-        XRPUSDT: [],
-        BTCUSDT: [],
-        ETHUSDT: [],
-        BNBUSDT: []
-    });
+    const [bots, setBots] = useState([]);
+    const [isShowForm, setIsShowForm] = useState(false)
+    const [chosenBot, setChosenBot] = useState(null)
+
+    const fetchGetBots = () => {
+        cryptoServices.get_bot()
+            .then(({data}) => setBots(data))
+    }
 
     useEffect(() => {
-        const cryptoServices = new CryptoServices();
-        cryptoServices.get_bot().then(res => {
-            let result = {};
-            res.data.map(value => {
-                if (result[value.symbol]) {
-                    result[value.symbol].push(value);
-                    return
-                }
-                result[value.symbol] = [value];
-            });
-
-            Object.entries(result).map(value => value[1].sort((a, b) => new Date(a.time) - new Date(b.time)));
-
-            setData(result);
-        });
+        fetchGetBots()
     }, []);
+
+    const openForm = (id) => {
+        setIsShowForm(true)
+        setChosenBot(id)
+    }
 
     return (
         <div>
-            <Tabs
-                defaultActiveKey={Object.keys(data)[0]}
-                id="uncontrolled-tab-example"
-                className="mb-3"
-                fill
-            >
-                {
-                    Object.entries(data).map((value) =>
-                        <Tab eventKey={value[0]} title={value[0]}>
-                            <Sonnet data={value[1]} key={value[0]}/>
-                        </Tab>
-                    )
-                }
-            </Tabs>
+            {bots.length && bots.map(({name, picture, description, id}) => <div className={style.bot} key={id}>
+                <img className={style.botImg} src={picture} alt=""/>
+                <div className={style.botBody}>
+                    <h3>{name}</h3>
+                    <p>{description}</p>
+                    {/* TODO <Button>details</Button> create new page with chart, description  ...*/}
+                    {isShowForm && chosenBot === id ? <FormUserAddBot botId={id} setIsShowForm={setIsShowForm}/> :
+                        <Button className={style.btnShowForm} onClick={event => openForm(id)}>add</Button>}
+                </div>
+            </div>)}
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {CryptoServices} from "../../services/CryptoServices";
+import {cryptoServices} from "../../services/CryptoServices";
 import {Modal} from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 // import {w3cwebsocket as W3CWebSocket} from "websocket";
@@ -23,7 +23,6 @@ export const KitComponent = () => {
         // };
 
         // console.log(client);
-        const cryptoServices = new CryptoServices();
         cryptoServices.searchBigGamer().then((response) => {
             const labels = [];
             const data = {long: [], short: []};

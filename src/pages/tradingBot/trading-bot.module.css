@@ -1,0 +1,48 @@
+.bot {
+    display: flex;
+    margin: 2%;
+    box-shadow: 10px 5px 5px grey;
+    padding: 1%;
+}
+
+.botBody {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1%;
+}
+
+.btnShowForm {
+    margin-left: auto;
+    margin-top: auto;
+}
+
+.botImg {
+    width: 20%;
+    height: 20%;
+}
+
+p, h3 {
+    margin: auto;
+}
+
+.btnGoToWork {
+    margin-top: auto;
+}
+
+.formAddBot {
+    display: flex;
+    justify-content: end;
+    align-content: end;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.formAddBot form {
+    display: flex;;
+}
+
+.formGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

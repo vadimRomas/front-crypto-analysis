@@ -2,11 +2,10 @@ import {useEffect, useState} from "react";
 import Button from "react-bootstrap/Button";
 
 import {FormAddAPIKeys} from "./FormAddAPIKeys";
-import {userServices, cryptoAPIKeys} from "../../../services/userServices";
+import {cryptoAPIKeys} from "../../../services/userServices";
 import binance_picture from '../../../state/img/binance_api.png';
-import './cryptoAPI.css'
+import style from './cryptoAPI.module.css'
 import Card from "react-bootstrap/Card";
-import * as Icon from "react-bootstrap-icons";
 import {CloseButton} from "react-bootstrap";
 
 export const MainCryptoAPIKeys = () => {
@@ -14,7 +13,7 @@ export const MainCryptoAPIKeys = () => {
     const [listApiKeys, setListAPIKeys] = useState([])
 
     useEffect(() => {
-        userServices.getCryptoAPIKeys()
+        cryptoAPIKeys.getCryptoAPIKeys('all')
             .then(res => setListAPIKeys(res.data))
             .catch(error => console.log(error))
 
@@ -35,14 +34,14 @@ export const MainCryptoAPIKeys = () => {
     }
 
     return (
-        <div className="main-crypto-api-keys">
+        <div className={style.mainCryptoApiKeys}>
             {listApiKeys.length
-                ? <div className='cards-user-crypto-keys'>
+                ? <div className={style.cardsUserCryptoKeys}>
                     {listApiKeys.map(value => {
                         return (
-                            <Card className='card-user-crypto-keys text-center'>
+                            <Card className={`${style.cardUserCryptoKeys} text-center`}>
                                 <Card.Img variant="top" src={binance_picture}/>
-                                <Card.Body className='card-body'>
+                                <Card.Body className={style.cardBody}>
                                     <Card.Title>{value.name}</Card.Title>
                                     <Card.Text>
                                         API Key: {value.api_key.slice(0, 12)}*** <br/>
@@ -54,30 +53,32 @@ export const MainCryptoAPIKeys = () => {
                             </Card>
                         )
                     })}
-                    {showForm ? <div className="open-form-api-keys">
-                            <div className='button-close-form'>
+                    {showForm ? <div className={style.openFormApiKeys}>
+                            <div className={style.buttonCloseForm}>
                                 <CloseButton onClick={event => setShowForm(!showForm)}/>
                             </div>
                             <FormAddAPIKeys pushAPIKeys={pushAPIKeys}/>
                         </div>
-                        : <div className='button-open-form'>
-                            <Button variant="primary"
-                                    onClick={e => setShowForm(!showForm)}>
+                        : <div className={style.buttonOpenForm}>
+                            <Button
+                                variant="primary"
+                                onClick={e => setShowForm(!showForm)}
+                            >
                                 Add API Keys
                             </Button>
                         </div>}
                 </div>
                 :
-                <div className={'user-havent-keys'}>
+                <div className={style.userHaventKeys}>
                     {!showForm ? <div>
                             <p>You haven`t any API keys yet.</p>
-                            <Button className="button-open-form" variant="primary"
+                            <Button className={style.buttonOpenForm} variant="primary"
                                     onClick={e => setShowForm(!showForm)}>
                                 {showForm ? 'Close from' : 'Add API Keys'}
                             </Button>
                         </div>
-                        : <div className="open-form-api-keys">
-                            <div className='button-close-form'>
+                        : <div className={style.openFormApiKeys}>
+                            <div className={style.buttonCloseForm}>
                                 <CloseButton onClick={event => setShowForm(!showForm)}/>
                             </div>
                             <FormAddAPIKeys pushAPIKeys={pushAPIKeys}/>
